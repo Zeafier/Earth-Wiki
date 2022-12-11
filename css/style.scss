@@ -1,0 +1,210 @@
+// variables
+$gray: #646464;
+$text: #f2f2f2;
+$timeline: #c4e1e2;
+$searchbox: #4c4c4c;
+$text_big_size: 36px;
+$text_medium_size: 26px;
+$text_small_size: 20px;
+
+@import './mixins.scss';
+
+//global
+* {
+    color: $text;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+}
+
+//body view
+body {
+    
+    background-color: black;
+    
+}
+
+//earth
+#globe {
+    padding: 0;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+// navigation
+nav {
+    width: 100%;
+    height: 5vh;
+    background-color: $gray;
+    position: fixed;
+    z-index: 10;
+
+    ul {
+        margin-top: 1vh;
+        @include flexbox_center_split(68%, 100%, 2.5vh);
+
+        li {
+            .title {
+                font-size: $text_big_size;
+                font-weight: 800;
+            }
+
+            p {
+                font-size: $text_medium_size;
+
+                a {
+                    cursor: pointer;
+                    transition: .3s;
+
+                    &:hover {
+                        @include hovers($timeline);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// page containers
+.container {
+    position: absolute;
+    @include flexbox_center_split(55%, 100%, 100vh);
+    margin: 0;
+    padding: 0;
+    z-index: 9;
+    // side menus
+    .side_menu {
+        width: 20%;
+        background-color: $gray;
+        height: 70vh;
+        margin-top: 5vh;
+        transition: .5s;
+
+        &.hidden {
+            height: 3vh;
+        }
+
+        .menu_title {
+            width: calc(100% - 4px);
+            height: fit-content;
+            padding: 2px;
+            background-color: $searchbox;
+            text-indent: 20px;
+            font-size: $text_medium_size;
+            cursor: pointer;
+        }
+
+        #main_menu {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow-y: auto;
+
+            .drop_list {
+                margin: 0 30px;
+
+                .category {
+                    font-size: $text_medium_size;
+                    text-transform: capitalize;
+                    cursor: pointer;
+
+                    &:hover {
+                        @include hovers($timeline);
+                    }
+
+                    &.active{
+                        color: $searchbox;
+                    }
+                }
+
+                .item_list {
+                    transition: .5s;
+                    display: none;
+                    flex-direction: column;
+                    margin: 5px 0 0 30px;
+                    padding: 0 0 0 30px;
+                    gap: 5px;
+                    border-left: 1px solid $text;
+
+                    li {
+                        font-size: $text_small_size;
+                        text-transform: capitalize;
+                        cursor: pointer;
+
+                        &:hover{
+                            @include hovers($timeline);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // filter box
+    #information_box {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 10px;
+
+        .content_title {
+            margin-left: 20px;
+            font-size: $text_medium_size;
+            font-weight: 600;
+        }
+
+        .conntent_img {
+            width: 90%;
+            align-self: center;
+        }
+
+        .content_description {
+            width: 90%;
+            align-self: center;
+            height: fit-content;
+            font-size: $text_small_size;
+        }
+
+        .content_link {
+            margin-top: 10vh;
+            width: 60%;
+            align-self: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: $text_small_size;
+        }
+
+        .content_button {
+            margin-top: auto;
+            margin-bottom: 5px;
+            width: 90%;
+            padding: 2px 0;
+            color: black;
+            align-self: center;
+            background-color: $timeline;
+            font-size: $text_small_size;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    }
+}
+
+.slider {
+    padding: 5px;
+    border-radius: 2px;
+    position: absolute;
+    left: 10%;
+    bottom: 2vh;
+    width: 80%;
+    background-color: $timeline;
+    z-index: 11;
+    color: black;
+}

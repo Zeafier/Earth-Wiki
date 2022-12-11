@@ -6,36 +6,82 @@
     <title>Interactive Globe</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Planetary js api -->
     <script type='text/javascript' src='http://d3js.org/d3.v3.min.js'></script>
     <script type='text/javascript' src='http://d3js.org/topojson.v1.min.js'></script>
     <script type='text/javascript' src='./scripts/planetaryjs.min.js'></script>
 </head>
 
 <body>
-    <div class="sphere">
-        <canvas id='globe' height="500" width="500"></canvas>
+    <!-- navigation page -->
+    <nav>
+        <ul>
+            <li>
+                <p class="title">EarthWiki</p>
+            </li>
+            <li>
+                <p><a href="#">Login</a> or <a href="#">Singup</a></p> 
+            </li>
+        </ul>
+    </nav>
+
+    <!-- container page -->
+    <div class="container">
+        <!-- side menu -->
+        <aside class="side_menu">
+            <h3 class="menu_title" onclick="hideFilters()">Filters</h3>
+            <!-- Main options -->
+            <div id="main_menu">
+                <!-- item dropdown list -->
+                <div class="drop_list">
+                    <h2 class="category" onclick="show_sub_options('item_1', this)">item 1</h2>
+                    <ul class="item_list" id="item_1">
+                        <li>option 1</li>
+                        <li>option 2</li>
+                        <li>option 3</li>
+                        <li>option 4</li>
+                    </ul>
+                </div>
+                <!-- item dropdown list -->
+                <div class="drop_list">
+                    <h2 class="category" onclick="show_sub_options('item_2', this)">item 2</h2>
+                    <ul class="item_list" id="item_2">
+                        <li>option 1</li>
+                        <li>option 2</li>
+                        <li>option 3</li>
+                        <li>option 4</li>
+                    </ul>
+                </div>
+                <!-- item dropdown list -->
+                <div class="drop_list">
+                    <h2 class="category" onclick="show_sub_options('item_3', this)">item 3</h2>
+                    <ul class="item_list" id="item_3">
+                        <li>option 1</li>
+                        <li>option 2</li>
+                        <li>option 3</li>
+                        <li>option 4</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        <!-- side menu -->
+        <aside class="side_menu" id="information_box">
+            <h3 class="menu_title">Info tab</h3>
+            <h2 class="content_title">Info</h2>
+            <img src="https://th.bing.com/th/id/R.75891b7211b2511cc623f21ca9524453?rik=CxI4yDEKjTx1%2fg&riu=http%3a%2f%2fwonderfulengineering.com%2fwp-content%2fuploads%2f2014%2f06%2fearth-wallpapers-18.jpg&ehk=s%2fN2W92uCV%2fyZ71MmoZzpZJGtyMgSO9UgwdkcQLqauY%3d&risl=&pid=ImgRaw&r=0" alt="Earth wallpaper" class="conntent_img">
+            <div class="content_description">
+                <p>balbalablablab slnbdkljabd liknjaso lfjnreuifh oiewrp9 hfdo9hjnv loi;e rkmg</p>
+            </div>
+            <a href="#" class="content_link">LINK</a>
+            <button class="content_button">Rewind</button>
+        </aside>
     </div>
-    
+
+    <div class="slider">IDK how to make it yet</div>
+
+    <canvas id='globe' height="800" width="800"></canvas>
+
     <script src="./scripts/main.js"></script>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        .sphere {
-            display: flex;
-            flex-direction: column;
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            height: 100vh;
-            align-items: center;
-            justify-content: center;
-            background-color: gray;
-        }
-    </style>
 </body>
 
 </html>

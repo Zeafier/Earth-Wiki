@@ -1,0 +1,16 @@
+// Slipt to side from center
+@mixin flexbox_center_split($gap, $width, $height) {
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+    gap: $gap;
+    width: $width;
+    height: $height;
+}
+
+@mixin hovers($color) {
+    color: $color;
+    text-shadow: 1px 1px 15px black;
+    text-decoration: underline;
+}
